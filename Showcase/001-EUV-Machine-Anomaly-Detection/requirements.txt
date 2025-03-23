@@ -1,0 +1,49 @@
+
+# EUV Machine Log Emulator
+
+This project emulates the generation of logs for an EUV (Extreme Ultraviolet) machine as part of the [Industrial LLM Engine project](https://github.com/jazzonenl/Industrial_LLM_Engine). The emulator simulates various subsystems of the machine, creates synthetic parameters, applies degradation events, and generates corresponding log entries.
+
+---
+
+## Step-by-Step Instructions
+
+### 1. Clone the Repository
+
+Open your terminal and clone the repository:
+
+```bash
+git clone https://github.com/jazzonenl/Industrial_LLM_Engine.git
+cd Industrial_LLM_Engine
+
+
+
+### 2. Set Up a Virtual Environment (Recommended)
+Creating a virtual environment helps to manage dependencies without affecting your system-wide packages.
+
+**On Windows:**
+
+python -m venv env
+env\Scripts\activate
+
+**On macOS/Linux:**
+python3 -m venv env
+source env/bin/activate
+
+
+### 3. Install Required Packages
+Ensure you have Python 3.7 or later installed.
+The required dependencies are listed in the requirements.txt file.
+
+Then, install the dependencies by running:
+
+pip install -r requirements.txt
+
+### 4. Run the Script
+To run the EUV Machine Log Emulator, simply execute:
+
+python euv_log_emulator.py
+
+### 5. (Optional) Run with a Custom Configuration
+If you wish to use a custom configuration file, pass the configuration path using the --config flag:
+
+python euv_log_emulator.py --config path/to/config.json

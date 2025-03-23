@@ -1,0 +1,241 @@
+<!--
+Drone Fly_Simulator made within testing Industrial LLM-Engine
+https://github.com/jazzonenl/Industrial_LLM_Engine
+
+This HTML file serves as the main user interface for the drone flight simulator.
+It provides a comprehensive dashboard that includes:
+  - A map display using Leaflet for visualizing the drone's position, flight route, and Jam Zones.
+  - Control panels for configuring flight parameters such as drone speed, time multiplier, flight time, and altitude stability.
+  - A Wind & Jam panel to adjust wind settings and simulate interference through a Jam Zone.
+  - Flight Control options including starting the flight in autopilot mode, canceling missions, hovering, resetting, setting Home, and returning Home.
+  - Manual Control options for fine-tuning the drone's position and altitude.
+  - A telemetry section that displays detailed drone data including speed, altitude, battery status, GPS signal, engine RPM, flight time, and total distance.
+  - An operator command log and system information panel for monitoring real-time updates.
+The interface interacts with the backend server via Socket.IO and loads supporting JavaScript modules:
+  - drone_sender.js: Handles socket communication for sending flight data.
+  - flight_emulation.js: Simulates flight physics and drone behavior.
+  - ui.js: Manages the user interface and map interactions.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Drone Simulation + Jam Zone – Realistic Flight Physics</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #eaeaea;
+    }
+    #container {
+      display: flex;
+    }
+    #leftPanel {
+      width: 70%;
+    }
+    #map {
+      height: 600px;
+    }
+    /* Control Panel divided into 4 sections */
+    #controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 10px;
+      background: #f2f2f2;
+      box-sizing: border-box;
+    }
+    #controls > div {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    .parameters-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+      margin: 3px;
+      cursor: pointer;
+    }
+    button.active {
+      background-color: blue;
+      color: white;
+    }
+    input[type="range"] {
+      width: 100%;
+      vertical-align: middle;
+    }
+    #rightPanel {
+      width: 30%;
+      padding: 15px;
+      box-sizing: border-box;
+      background: #fff;
+      border-left: 1px solid #ccc;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+    /* Telemetry Table */
+    #droneData {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    #droneData th, #droneData td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    #droneData th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+    }
+    #commandLog, #systemInfo {
+      font-size: 13px;
+      max-height: 150px;
+      overflow-y: auto;
+      background: #eaeaea;
+      padding: 5px;
+      white-space: pre-wrap;
+    }
+    .wind-directions label {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .home-tooltip {
+      font-weight: bold;
+      color: #006600;
+    }
+    /* Copy System Info Button */
+    #copySystemInfo {
+      margin-top: 5px;
+      padding: 3px 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!-- Left Panel: Map and Control Panel -->
+    <div id="leftPanel">
+      <div id="map"></div>
+      <div id="controls">
+        <!-- Flight Parameters -->
+        <div>
+          <h3>Flight Parameters</h3>
+          <div class="parameters-grid">
+            <div>
+              <label for="speed">Drone Speed (km/h):</label><br>
+              <input type="range" id="speed" min="1" max="100" value="50">
+              <span id="speed_value">50</span>
+            </div>
+            <div>
+              <label for="multiplier">Time Multiplier:</label><br>
+              <input type="range" id="multiplier" min="1" max="1000" value="10" step="1">
+              <span id="multiplier_value">10</span>
+            </div>
+            <div>
+              <label for="fullFlightTime">Full Flight Time (min):</label><br>
+              <input type="range" id="fullFlightTime" min="10" max="120" value="30">
+              <span id="fullFlightTime_value">30</span>
+            </div>
+            <div>
+              <label for="altStability">Altitude Stability:</label><br>
+              <input type="range" id="altStability" min="0.5" max="2" step="0.1" value="1">
+              <span id="altStability_value">1</span>
+            </div>
+          </div>
+        </div>
+        <!-- Wind & Jam -->
+        <div>
+          <h3>Wind &amp; Jam</h3>
+          <label for="windSpeed">Wind Speed (km/h):</label><br>
+          <input type="range" id="windSpeed" min="0" max="36" value="0">
+          <span id="windSpeed_value">0</span><br>
+          <div class="wind-directions">
+            <strong>Wind Direction:</strong><br>
+            <label><input type="radio" name="windDirection" value="0" checked> N</label>
+            <label><input type="radio" name="windDirection" value="45"> NE</label>
+            <label><input type="radio" name="windDirection" value="90"> E</label>
+            <label><input type="radio" name="windDirection" value="135"> SE</label>
+            <label><input type="radio" name="windDirection" value="180"> S</label>
+            <label><input type="radio" name="windDirection" value="225"> SW</label>
+            <label><input type="radio" name="windDirection" value="270"> W</label>
+            <label><input type="radio" name="windDirection" value="315"> NW</label>
+          </div>
+          <br>
+          <button id="drawJamZone">Draw Jam Zone</button><br><br>
+          <input type="checkbox" id="repeatRoute">
+          <label for="repeatRoute">Repeat Mission</label>
+        </div>
+        <!-- Flight Control -->
+        <div>
+          <h3>Flight Control</h3>
+          <button id="startFlight">Start Flight (Autopilot)</button>
+          <button id="cancelFlight">Cancel Mission</button>
+          <button id="hover">Hover</button>
+          <button id="resetBtn">Reset</button><br><br>
+          <button id="setHome">Set Home</button>
+          <button id="returnHome">Return Home</button><br><br>
+        </div>
+        <!-- Manual Control -->
+        <div>
+          <h3>Manual Control</h3>
+          <div class="manual-section">
+            <button id="north">North</button>
+            <button id="south">South</button>
+            <button id="west">West</button>
+            <button id="east">East</button>
+          </div>
+          <br>
+          <div class="manual-section">
+            <button id="altUp">Altitude +</button>
+            <button id="altDown">Altitude -</button>
+          </div>
+          <br>
+          <div class="manual-section">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right Panel: Drone Data -->
+    <div id="rightPanel">
+      <h2>Drone Autopilot Parameters</h2>
+      <table id="droneData">
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+        </tr>
+        <tr><td>Speed</td><td id="dataSpeed">0.00 km/h</td></tr>
+        <tr><td>Altitude</td><td id="dataAltitude">100.0 m</td></tr>
+        <tr><td>Target Altitude</td><td id="dataTargetAltitude">100.0 m</td></tr>
+        <tr><td>Battery</td><td id="dataBattery">100.0%, 30.0°C</td></tr>
+        <tr><td>Station Signal</td><td id="dataSignal">100%</td></tr>
+        <tr><td>GPS Signal</td><td id="dataGPSSignal">N/A</td></tr>
+        <tr><td>Satellites</td><td id="dataSatellites">N/A</td></tr>
+        <tr><td>Engine RPM</td><td id="dataRPM">0</td></tr>
+        <tr><td>Flight Time</td><td id="dataTime">0 min 0 sec</td></tr>
+        <tr><td>Total Distance</td><td id="dataDistance">0.0 m</td></tr>
+        <tr><td>Coordinates</td><td id="dataCoords">N/A</td></tr>
+        <tr><td>Status</td><td id="dataStatus">FLYING</td></tr>
+      </table>
+      <h3>Operator Command Log</h3>
+      <div id="commandLog">No Commands</div>
+      <h3>System Information</h3>
+      <div id="systemInfo">No System Info</div>
+      <button id="copySystemInfo">Copy System Info</button>
+    </div>
+  </div>
+
+  <!-- Include Socket.IO and Leaflet -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='drone_sender.js') }}"></script>
+  <script src="{{ url_for('static', filename='flight_emulation.js') }}"></script>
+  <script src="{{ url_for('static', filename='ui.js') }}"></script>
+</body>
+</html>
