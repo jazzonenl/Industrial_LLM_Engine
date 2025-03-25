@@ -81,3 +81,7 @@ This is achieved by a different approach: a **mathematical vectorizer**, which t
 Not all tasks require understanding words. Some require understanding data. If your system handles telemetry, calculates parameters, or analyzes behavior—forget about BERT embeddings, OpenAI, and other language models. They don't know what "overheating," "current spike," or "unusual customer profile" mean. In these tasks, it's not linguistics that wins. **Mathematics wins.**
 
 This is exactly the kind of task that an **Industrial LLM engine** solves—a system that does not replace LLMs, but helps them understand the world of numbers, signals, and telemetry.
+
+## Go to
+- [README](./README.md)
+- [Key Industrial LLM-Engine Advantages](./KeyAdvantages.md)

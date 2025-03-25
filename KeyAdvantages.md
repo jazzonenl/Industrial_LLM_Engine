@@ -24,3 +24,9 @@ Telemetry data from various industrial equipment sensors is consolidated into sp
 
 - **Rapid Diagnosis and Response:**  
   Upon detecting significant deviations, the engine enables immediate in-depth analysis to identify and rectify the issue, thereby significantly reducing reaction times and lowering the risk of critical failures.
+
+
+## Go to
+- [README](./README.md)
+- [Key Industrial LLM-Engine Advantages](./KeyAdvantages.md)
+- [High Level Architecture](./Architecture.md)

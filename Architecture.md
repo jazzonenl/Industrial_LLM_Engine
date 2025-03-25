@@ -30,4 +30,5 @@ This high-level architectural approach guarantees a reliable, scalable, and adap
 
 ## Go to
 - [README](./README.md)
-- [Key Advantages](./KeyAdvantages.md)
+- [Key Enhancement For LLM](./KeyEnhancementForLLM.md)
+- [Key Industrial LLM-Engine Advantages](./KeyAdvantages.md)
