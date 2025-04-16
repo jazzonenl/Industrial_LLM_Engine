@@ -31,3 +31,14 @@ Our AI module is integrated within a drone flight emulator that replicates essen
 - Machine Learning Models for Anomaly Detection
 - Data Visualization Tools
 
+## 🎮 Drone Flight Simulation Demo
+
+- [Industrial LLM Engine for Online Dron Telemetry](https://www.youtube.com/watch?v=1JFipqtTktU)
+
+Watch a drone follow a custom route with realistic flight physics, altitude control, and wind interference.
+Set waypoints, take off, and monitor every move — including potential crashes in jamming zones.
+
+- All telemetry — from GPS and altitude to battery and RPM — is streamed in real time.
+- Using Industrial LLM Engine, we analyze sensor data on the fly and generate text-based insights and warnings for the drone operator.
+- Smart simulation meets AI-powered decision support.
+
