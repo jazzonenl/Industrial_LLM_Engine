@@ -25,7 +25,4 @@ This repository will be updated with materials used for testing the Industrial L
 - [High Level Architecture](./Architecture.md)
 
 
-**Note:** <br>The project is currently in a R&D phase and operates independently, without corporate affiliations. Although it is not commercial at this stage, collaboration and open discussions regarding its future direction are encouraged. Any potential shift toward commercialization will be considered thoughtfully, based on mutual interest and promising opportunities. We invite interested developers, researchers, and industry professionals to stay informed by subscribing for updates. Should the project eventually move to a commercial model, there may be opportunities to join the team and contribute to its continued evolution.
-
-
 2025, Eindhoven, Netherlands
