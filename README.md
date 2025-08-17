@@ -1,28 +1,41 @@
-**Industrial LLM-Engine**
-<br>Industrial LLM Engine is an innovative and scalable solution engineered to empower large language models to understand and analyze industrial telemetry data, transforming raw measurements into actionable insights.
+# Industrial LLM Engine
 
-<br>Engine is designed for the automatic detection of anomalies and deviations in equipment performance, enabling rapid response to potential issues. In real time, the system processes industrial telemetry data, identifying even the smallest changes in equipment operation. The obtained results are forwarded to an LLM model, providing further interpretation and presenting the data in an easily understandable format to support informed management decisions.
+**The state-signature layer that gives LLMs eyes and memory in the real world.**
+Industrial LLM Engine transforms messy, high-volume telemetry into **clean, compact, AI-ready state signatures**.
+So teams and large language models can detect subtle change, reason over system health, and act with confidence.
 
-**Why It’s Innovative:**
+---
 
-- **Real-Time Processing:** Instant processing and analysis of telemetry enable timely fault detection.
-- **High Accuracy:** The application of advanced algorithms ensures the detection of even minor deviations in equipment performance.
-- **LLM Integration:** Delivering results to an LLM model facilitates a clear interpretation of complex data, thereby fostering effective decision-making.
+## Why teams choose it
 
-**Industries of Application:**
+- **LLM-ready context** — not just numbers: a clear, comparable view of changing system states.
+- **Early warnings** — surfaces small deviations before they become incidents.
+- **Explainable operations** — concise, operator-friendly indicators of *what changed and why*.
+- **Works with real data** — resilient to noise, gaps, and mixed formats.
+- **Scales across assets** — one approach for machines, lines, fleets, and sites.
 
-The engine is versatile and can be applied across various sectors, such as:
-- **Microchip Manufacturing:**  Quality control and monitoring of technological processes.
-- **Automotive Industry:**  Component diagnostics and early detection of wear indicators.
-- **Energy:**  Monitoring equipment in power plants and distribution networks.
-- **Manufacturing Automation and Robotics:**  Rapid detection of deviations to optimize processes.
-- **Additional Sectors:**  Healthcare, defense, agriculture—areas where precise and timely data analysis is critical.
+> This is the **missing middleware** between industrial data and AI reasoning.
 
-This repository will be updated with materials used for testing the Industrial LLM-Engine across various industrial sectors, including simulations and test data.
+---
 
-- [Key Enhancement For LLM](./KeyEnhancementForLLM.md)
-- [Key Industrial LLM-Engine Advantages](./KeyAdvantages.md)
-- [High Level Architecture](./Architecture.md)
+## Where it fits
+Energy • Microelectronics (EUV) • Aerospace & Transport • Automotive •
+Manufacturing & Robotics • Maritime & Rail
 
+---
 
-2025, Eindhoven, Netherlands
+## Learn more
+- **Why LLMs need State Signatures →** [Key Enhancement for LLM](./KeyEnhancementForLLM.md)
+- **What you gain →** [Key Advantages](./KeyAdvantages.md)
+- **How it plugs in (high level) →** [Architecture](./Architecture.md)
+
+### Showcase
+- EUV Machine Anomaly Detection — `Showcase/001-EUV-Machine-Anomaly-Detection`
+- Bearing Degradation Detection — `Showcase/002-Bearing-Degradation-Detection`
+- Drone Telemetry Analysis — `Showcase/004-Online-Analyse-Drone-Telemetry`
+- Wind Turbine Monitoring — `Showcase/006-Industrial-LLM-Engine-for-WindTurbine`
+- Submarine Cable Monitoring — `Showcase/007-Industrial-submarine-cable`
+
+<br>
+
+© 2025 · Eindhoven, Netherlands
