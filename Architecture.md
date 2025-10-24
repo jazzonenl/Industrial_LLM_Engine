@@ -1,41 +1,31 @@
 # Architecture (High Level)
 
-Industrial LLM Engine is a **modular, integration-friendly** layer between industrial data and AI.
-It focuses on **clarity, comparability, and explainability** — without exposing implementation details.
+_Updated: 24 Oct 2025_
+
+The architecture separates **how data is processed** from **how results are used**, ensuring portability and predictable integration across domains.
+
+```
+Sources → Normalization → Change & Trends → Relations & Context → Summaries → API → Grafana & AI Agents
+```
 
 ## Conceptual layers
+**Integration.** Connect historical and streaming data; harmonize formats.
+**Normalization.** Bring heterogeneous signals to a consistent representation.
+**Change & Trends.** Identify meaningful deviations and evolving patterns.
+**Relations & Context.** Surface likely drivers and effects across systems and groups.
+**Summaries.** Clear statements of state, risk, trend, and recommended next steps.
+**Delivery.** Dashboards in **Grafana**; APIs for systems and **AI agents**.
 
-1. **Data Integration**
-   Connects to diverse sources (historical and streaming) and normalizes inputs.
+## Design principles
+- **Modularity.** Components deploy and evolve independently.
+- **Stable contracts.** Inputs and outputs follow documented, versioned schemas.
+- **Scalability.** Works for single assets and distributed fleets without redesign.
+- **Reliability.** Resilient to noise, gaps, and mixed data quality.
+- **Privacy.** External interfaces expose aggregated state only.
 
-2. **State Signatures**
-   Converts heterogeneous signals into **compact, comparable representations** of system health.
+## Current status
+- Unified architecture and production‑proven pipeline.
+- Standard Grafana dashboards available.
+- Agent‑ready formats for system, group, and attribute summaries.
 
-3. **Change & Trends**
-   Highlights meaningful deviations and evolving patterns for early warning.
-
-4. **Relations & Context**
-   Surfaces relationships across signals and subsystems to localize and prioritize.
-
-5. **LLM Interaction**
-   Presents AI-ready state and change so models can interpret, explain, and advise.
-
-6. **Experience & Governance**
-   Enables dashboards, alerting, review loops, and policy controls for safe adoption.
-
-## Flow at a glance
-**Ingest → Normalize → Signaturize → Detect → Contextualize → Explain**
-
-## Integration principles
-- **Non-disruptive:** works alongside existing historians and monitoring.
-- **Composable:** adopt layers independently or end-to-end.
-- **Portable:** consistent outcomes across assets, lines, and sites.
-
-> Goal: a universal, AI-ready state layer that lets teams and LLMs reason about the real world with confidence.
-
----
-
-**Navigate:**
-- Back to [README](./README.md)
-- Why LLMs need it: [Key Enhancement for LLM](./KeyEnhancementForLLM.md)
-- Benefits: [Key Advantages](./KeyAdvantages.md)
+> Implementation details and algorithmic specifics are intentionally not part of this public documentation.

@@ -1,41 +1,51 @@
-# Industrial LLM Engine
+# Industrial LLM Engine — Public Overview
 
-**The state-signature layer that gives LLMs eyes and memory in the real world.**
-Industrial LLM Engine transforms messy, high-volume telemetry into **clean, compact, AI-ready state signatures**.
-So teams and large language models can detect subtle change, reason over system health, and act with confidence.
+_Updated: 24 Oct 2025_
 
----
-
-## Why teams choose it
-
-- **LLM-ready context** — not just numbers: a clear, comparable view of changing system states.
-- **Early warnings** — surfaces small deviations before they become incidents.
-- **Explainable operations** — concise, operator-friendly indicators of *what changed and why*.
-- **Works with real data** — resilient to noise, gaps, and mixed formats.
-- **Scales across assets** — one approach for machines, lines, fleets, and sites.
-
-> This is the **missing middleware** between industrial data and AI reasoning.
+**Industrial LLM Engine** is a domain‑agnostic state layer that turns heterogeneous telemetry into **clear, comparable, AI‑ready summaries**. The architecture has been unified, the data pipeline is proven, and outcomes are available via **Grafana dashboards** and **agent‑friendly APIs** — without exposing implementation internals.
 
 ---
 
-## Where it fits
-Energy • Microelectronics (EUV) • Aerospace & Transport • Automotive •
-Manufacturing & Robotics • Maritime & Rail
+## What organizations gain
+- **Unified view of health.** Replace scattered parameters with a consistent picture of system state over time.
+- **Faster decisions.** Concise summaries highlight status, trend, and likely causes — ready for action.
+- **LLM‑ready context.** Compact, structured outputs enable reliable answers from AI agents and copilots.
+- **Operational visibility.** Standard Grafana panels provide status, changes, and relationships.
+- **Portability.** One approach scales from single assets to lines, fleets, and sites — across industries.
 
 ---
 
-## Learn more
-- **Why LLMs need State Signatures →** [Key Enhancement for LLM](./KeyEnhancementForLLM.md)
-- **What you gain →** [Key Advantages](./KeyAdvantages.md)
-- **How it plugs in (high level) →** [Architecture](./Architecture.md)
+## What’s new in this release
+- **Universal architecture.** Loosely coupled components interacting through stable, well‑defined contracts.
+- **Mature pipeline.** From ingestion to summaries and relationships, the flow is standardized and repeatable.
+- **Business‑level outputs.** System, group, and attribute summaries speak the language of operations.
+- **Agent readiness.** Response formats stay compact, lowering cost while preserving meaning.
+- **Privacy by design.** External consumers receive aggregated state views only.
 
-### Showcase
-- EUV Machine Anomaly Detection — `Showcase/001-EUV-Machine-Anomaly-Detection`
-- Bearing Degradation Detection — `Showcase/002-Bearing-Degradation-Detection`
-- Drone Telemetry Analysis — `Showcase/004-Online-Analyse-Drone-Telemetry`
-- Wind Turbine Monitoring — `Showcase/006-Industrial-LLM-Engine-for-WindTurbine`
-- Submarine Cable Monitoring — `Showcase/007-Industrial-submarine-cable`
+---
 
-<br>
+## Where it applies
+Manufacturing & Robotics • Microelectronics (EUV) • Energy • Finance • Aerospace & Transport • Logistics • IT Infrastructure
 
-© 2025 · Eindhoven, Netherlands
+---
+
+## Getting started (high level)
+1. Align configuration for objects and attributes.
+2. Connect data sources in the accepted normalized form.
+3. Enable computation and open the **Grafana** dashboards.
+4. (Optional) Integrate **AI agents** using the public summaries and response formats.
+
+---
+
+## Privacy & governance
+Only aggregated state representations leave the secure boundary. Processing is deployable on‑premises to support regulated environments.
+
+---
+
+## Navigation
+- **Architecture →** [Architecture](./Architecture.md)
+- **Benefits →** [Key Advantages](./KeyAdvantages.md)
+- **Why this matters for LLMs →** [Key Enhancement for LLM](./KeyEnhancementForLLM.md)
+
+
+© 2024 - 2025
