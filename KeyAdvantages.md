@@ -1,25 +1,26 @@
 # Key Advantages
 
-_Updated: 24 Oct 2025_
+_Updated: 25 Jan 2026_
 
-Industrial LLM Engine transforms complex telemetry into **clarity that scales** — for teams and for AI.
+Industrial Cognitive Core (ICC) turns complex telemetry into **traceable clarity** for engineers and decision-makers.  
+It adds **state fingerprints, evidence packs and supervised reasoning workflows** on top of existing platforms.
 
 ## Business value
-- **Unified basis for decisions.** State is presented clearly and remains comparable over time.
-- **Reduced time to action.** Less manual analysis; faster path from facts to decisions.
-- **Cross‑industry applicability.** One approach fits manufacturing, finance, logistics, and beyond.
+- **Faster, safer decisions.** Evidence-linked conclusions reduce ambiguity in incident triage.
+- **Repeatable rollout.** Start bounded (one system / incident class), expand via reusable core updates and modular extensions.
+- **Enterprise-fit positioning.** Designed for staged validation, ownership boundaries and acceptance criteria.
 
 ## Operations
-- **Early signals.** Detect meaningful shifts before they escalate.
-- **Cause awareness.** Relationships help localize sources and understand impact.
-- **Observability.** Ready‑to‑use **Grafana** panels and concise summaries.
+- **Telemetry triage.** Highlight meaningful change and prioritize what needs attention.
+- **“Have we seen this before?”** Similarity evidence helps reuse past incident traces.
+- **Impact awareness.** Support change-impact and dependency-aware checks (where available).
 
 ## IT & Integration
-- **Stable interfaces.** Clear, documented contracts simplify onboarding and updates.
-- **Scale without rewrites.** Growth requires configuration, not architectural change.
-- **Data protection.** External consumers receive aggregates, not raw telemetry.
+- **Fits existing stacks.** Works with current data platforms; outputs can be surfaced in **Grafana** and APIs.
+- **Stable interfaces.** Documented, versioned contracts simplify onboarding and upgrades.
+- **Data protection.** External consumers receive aggregated, controlled outputs—not raw telemetry.
 
 ## AI & LLMs
-- **Prepared context.** Short, informative descriptions of state, trend, and likely causes.
-- **Consistent outputs.** Easy to embed into decision flows and reports.
-- **Efficient by design.** Compact data reduces cost and latency.
+- **Grounded context.** Structured state + history + evidence improves reliability over raw numbers.
+- **Tool-verified answers.** Reasoning can be bound to query/tool outputs instead of text-only responses.
+- **LLM is interchangeable.** External services, customer-hosted enterprise models or open-source deployments.

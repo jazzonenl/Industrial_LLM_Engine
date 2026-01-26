@@ -1,31 +1,32 @@
-# Industrial LLM Engine — Public Overview
+# Industrial Cognitive Core (ICC) — Public Overview
 
-_Updated: 24 Oct 2025_
+_Updated: 25 Jan 2026_
 
-**Industrial LLM Engine** is a domain‑agnostic state layer that turns heterogeneous telemetry into **clear, comparable, AI‑ready summaries**. The architecture has been unified, the data pipeline is proven, and outcomes are available via **Grafana dashboards** and **agent‑friendly APIs** — without exposing implementation internals.
+**Industrial Cognitive Core (ICC)** is a domain‑agnostic reasoning layer that turns heterogeneous telemetry into **clear, comparable, evidence‑linked state summaries**.  
+It integrates with existing data platforms and exposes outcomes through **Grafana dashboards** and **integration‑friendly APIs** — without exposing implementation internals.
 
 ---
 
 ## What organizations gain
 - **Unified view of health.** Replace scattered parameters with a consistent picture of system state over time.
-- **Faster decisions.** Concise summaries highlight status, trend, and likely causes — ready for action.
-- **LLM‑ready context.** Compact, structured outputs enable reliable answers from AI agents and copilots.
-- **Operational visibility.** Standard Grafana panels provide status, changes, and relationships.
-- **Portability.** One approach scales from single assets to lines, fleets, and sites — across industries.
+- **Faster, safer decisions.** Evidence‑linked outputs reduce ambiguity in incident triage and escalation.
+- **LLM‑ready context.** Structured state fingerprints improve reliability versus raw numbers.
+- **Operational visibility.** Dashboards highlight status, change, and relationships where available.
+- **Portability.** One approach scales from single assets to fleets and sites — across domains.
 
 ---
 
-## What’s new in this release
-- **Universal architecture.** Loosely coupled components interacting through stable, well‑defined contracts.
-- **Mature pipeline.** From ingestion to summaries and relationships, the flow is standardized and repeatable.
-- **Business‑level outputs.** System, group, and attribute summaries speak the language of operations.
-- **Agent readiness.** Response formats stay compact, lowering cost while preserving meaning.
-- **Privacy by design.** External consumers receive aggregated state views only.
+## What’s new
+- **State fingerprints.** Compact, comparable representations of system health and change (interpretable + vector).
+- **Evidence packs.** Minimal, traceable bundles of the observations supporting each conclusion.
+- **Supervised reasoning workflows (early-stage).** Bounded hypotheses and next‑best checks with review gates.
+- **Tool verification.** Conclusions can be grounded in query/workflow outputs in controlled modes.
+- **Stable contracts.** Versioned inputs/outputs to support predictable integration and change management.
 
 ---
 
 ## Where it applies
-Manufacturing & Robotics • Microelectronics (EUV) • Energy • Finance • Aerospace & Transport • Logistics • IT Infrastructure
+Manufacturing & Robotics • Microelectronics (EUV) • Energy • Aerospace & Transport • Logistics • IT Infrastructure
 
 ---
 
@@ -33,12 +34,14 @@ Manufacturing & Robotics • Microelectronics (EUV) • Energy • Finance • A
 1. Align configuration for objects and attributes.
 2. Connect data sources in the accepted normalized form.
 3. Enable computation and open the **Grafana** dashboards.
-4. (Optional) Integrate **AI agents** using the public summaries and response formats.
+4. (Optional) Integrate downstream automation or AI agents using the public summaries and response formats.
 
 ---
 
 ## Privacy & governance
-Only aggregated state representations leave the secure boundary. Processing is deployable on‑premises to support regulated environments.
+Only aggregated state representations leave the secure boundary. Deployments can be kept in customer‑controlled environments to support regulated operations.
+
+> Internal computation logic, private schemas and implementation details are intentionally not part of this public documentation.
 
 ---
 
@@ -47,5 +50,4 @@ Only aggregated state representations leave the secure boundary. Processing is d
 - **Benefits →** [Key Advantages](./KeyAdvantages.md)
 - **Why this matters for LLMs →** [Key Enhancement for LLM](./KeyEnhancementForLLM.md)
 
-
-© 2024 - 2025
+© 2024 - 2026

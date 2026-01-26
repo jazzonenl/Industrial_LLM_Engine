@@ -1,18 +1,18 @@
 # Key Enhancement for LLM
 
-_Updated: 24 Oct 2025_
+_Updated: 25 Jan 2026_
 
-LLMs excel at language; operations speak signals. To reason about real systems, models need **structured, comparable state**, not raw numbers.
+LLMs excel at language; operations speak in signals. To reason about real systems, models need **structured, comparable state** and **traceable evidence**, not raw telemetry.
 
-## What the Engine provides
-- **State signatures.** Clean, compact representations of system health and change.
-- **Contextual relations.** Likely drivers and effects to guide prioritization and action.
-- **Consistent format.** Uniform, versioned outputs for agents and analytics.
+## What ICC provides
+- **State fingerprints.** Compact representations of system health and change (interpretable + vector).
+- **Evidence packs.** Minimal, reviewable inputs that support each conclusion.
+- **Consistent outputs.** Uniform, versioned formats for dashboards, reports and supervised automation.
 
 ## What this unlocks
 - **Understanding.** Identify which subsystems are shifting — and by how much.
-- **Reasoning.** Separate significance from noise with consistent deltas.
-- **Advising.** Produce grounded recommendations with traceable context.
+- **Reasoning.** Separate significance from noise with consistent deltas and history.
+- **Decision support.** Propose next-best checks and bounded conclusions, grounded in evidence.
 
 ## Safeguards
-External interfaces expose aggregate state only; raw telemetry and detailed computation logic remain private.
+External interfaces expose aggregated outputs only; raw telemetry and internal computation logic remain private.

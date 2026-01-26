@@ -1,31 +1,32 @@
 # Architecture (High Level)
 
-_Updated: 24 Oct 2025_
+_Updated: 25 Jan 2026_
 
-The architecture separates **how data is processed** from **how results are used**, ensuring portability and predictable integration across domains.
+Industrial Cognitive Core (ICC) is a **reasoning layer on top of existing telemetry and data platforms**.  
+It separates **how data is processed** from **how results are consumed**, enabling predictable integration across domains and environments.
 
 ```
-Sources → Normalization → Change & Trends → Relations & Context → Summaries → API → Grafana & AI Agents
+Telemetry & Platforms → State Fingerprints → Evidence Packs → Reasoning → Tool Verification → Delivery (API / Grafana / Agents)
 ```
 
 ## Conceptual layers
-**Integration.** Connect historical and streaming data; harmonize formats.
-**Normalization.** Bring heterogeneous signals to a consistent representation.
-**Change & Trends.** Identify meaningful deviations and evolving patterns.
-**Relations & Context.** Surface likely drivers and effects across systems and groups.
-**Summaries.** Clear statements of state, risk, trend, and recommended next steps.
-**Delivery.** Dashboards in **Grafana**; APIs for systems and **AI agents**.
+**Integration.** Connect historical and streaming data; harmonize formats and access boundaries.  
+**State fingerprints.** Compact, comparable representations of system state (interpretable + vector).  
+**Evidence packs.** Minimal, traceable bundles of the observations used for conclusions.  
+**Reasoning & decision support (early-stage).** Structured hypotheses and next-best checks, bounded by scope.  
+**Tool use & verification.** Queries / workflows executed in supervised modes; conclusions grounded in tool outputs.  
+**Delivery.** APIs and dashboards (**Grafana**) for engineers and downstream automation.
 
 ## Design principles
-- **Modularity.** Components deploy and evolve independently.
-- **Stable contracts.** Inputs and outputs follow documented, versioned schemas.
-- **Scalability.** Works for single assets and distributed fleets without redesign.
-- **Reliability.** Resilient to noise, gaps, and mixed data quality.
-- **Privacy.** External interfaces expose aggregated state only.
+- **Complement, don’t replace.** ICC augments monitoring/telemetry stacks instead of competing with them.
+- **Stable contracts.** Versioned inputs/outputs; predictable change management.
+- **Traceability.** Outputs are evidence-linked and inspectable; suitable for audit trails.
+- **Human oversight.** Built for review, escalation and validation gates.
+- **Enterprise control.** Designed for customer-controlled environments and scoped permissions.
 
 ## Current status
-- Unified architecture and production‑proven pipeline.
-- Standard Grafana dashboards available.
-- Agent‑ready formats for system, group, and attribute summaries.
+- Core workflow implemented and suitable for controlled evaluation.
+- State fingerprints + evidence-first summaries available for system and group views.
+- Integration-friendly outputs for dashboards, reports and supervised agent workflows.
 
-> Implementation details and algorithmic specifics are intentionally not part of this public documentation.
+> Implementation specifics, internal schemas and computation logic are intentionally not part of this public documentation.
