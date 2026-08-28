@@ -1,9 +1,18 @@
 # Industrial Cognitive Core (ICC) — Public Overview
 
-_Updated: 25 Jan 2026_
+_Updated: 28 Aug 2026_
 
 **Industrial Cognitive Core (ICC)** is a domain‑agnostic reasoning layer that turns heterogeneous telemetry into **clear, comparable, evidence‑linked state summaries**.  
 It integrates with existing data platforms and exposes outcomes through **Grafana dashboards** and **integration‑friendly APIs** — without exposing implementation internals.
+
+---
+
+## Current direction
+Work on **Axiom** made a broader challenge increasingly clear: operational AI needs durable, governed memory that can preserve decisions, corrections, evidence and outcomes across agents, models and applications.
+
+That challenge has grown into **AIM — AI Memory**, which is now the primary development focus. Axiom remains part of the broader technology direction.
+
+**Current development → [AIM — AI Memory](https://github.com/jazzonenl/ai_memory)**
 
 ---
 
@@ -46,6 +55,7 @@ Only aggregated state representations leave the secure boundary. Deployments can
 ---
 
 ## Navigation
+- **Current development →** [AIM — AI Memory](https://github.com/jazzonenl/ai_memory)
 - **Architecture →** [Architecture](./Architecture.md)
 - **Benefits →** [Key Advantages](./KeyAdvantages.md)
 - **Why this matters for LLMs →** [Key Enhancement for LLM](./KeyEnhancementForLLM.md)
